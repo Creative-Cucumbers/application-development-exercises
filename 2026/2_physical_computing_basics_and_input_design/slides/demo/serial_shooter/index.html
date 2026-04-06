@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>micro:bit Serial Shooter Demo</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.15);
+      --text: #f3f4f6;
+      --accent: #5eead4;
+      --danger: #fb7185;
+      --good: #facc15;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(94,234,212,0.15), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(250,204,21,0.12), transparent 24%),
+        linear-gradient(180deg, #10162f 0%, #0b1020 100%);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    p, li {
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #ffffff;
+      color: #111827;
+    }
+    button.primary {
+      background: var(--accent);
+    }
+    .status {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+    .kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-family: Menlo, Monaco, monospace;
+      font-size: 13px;
+    }
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    canvas {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 10;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(94,234,212,0.04), transparent 35%),
+        #050816;
+      display: block;
+    }
+    .small {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+    @media (max-width: 980px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside class="panel">
+      <h1>micro:bit Serial Shooter</h1>
+      <p>micro:bit をコントローラとして使うことを想定した、簡単なブラウザ用シューティングゲームのサンプルです。</p>
+
+      <div class="actions">
+        <button class="primary" id="connect">micro:bit を接続</button>
+        <button id="restart">リスタート</button>
+      </div>
+
+      <div class="status" id="status">接続前です。まずはキーボードだけでも動かせます。</div>
+
+      <h2>操作</h2>
+      <ul>
+        <li><span class="kbd">←</span> <span class="kbd">→</span> で移動</li>
+        <li><span class="kbd">Space</span> で発射</li>
+        <li>micro:bit 接続時はシリアル入力を読む想定</li>
+      </ul>
+
+      <h2 style="margin-top:20px;">想定するシリアル入力</h2>
+      <p class="small">例: <code>{"x": -420, "fire": 1}</code></p>
+      <p class="small"><code>x</code> は傾き、<code>fire</code> はボタンAなどの発射入力として解釈。</p>
+    </aside>
+
+    <main class="panel">
+      <div class="hud">
+        <div>Score: <span id="score">0</span></div>
+        <div>Lives: <span id="lives">3</span></div>
+      </div>
+      <canvas id="game" width="960" height="600"></canvas>
+    </main>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('score');
+    const livesEl = document.getElementById('lives');
+    const statusEl = document.getElementById('status');
+
+    const player = { x: canvas.width / 2, y: canvas.height - 60, w: 48, h: 20, speed: 6 };
+    let bullets = [];
+    let enemies = [];
+    let score = 0;
+    let lives = 3;
+    let frame = 0;
+    let keys = { left: false, right: false, fire: false };
+    let lastFire = 0;
+    let serialState = { x: 0, fire: 0 };
+
+    function resetGame() {
+      bullets = [];
+      enemies = [];
+      score = 0;
+      lives = 3;
+      player.x = canvas.width / 2;
+      scoreEl.textContent = String(score);
+      livesEl.textContent = String(lives);
+    }
+
+    function spawnEnemy() {
+      enemies.push({
+        x: 40 + Math.random() * (canvas.width - 80),
+        y: -20,
+        r: 16 + Math.random() * 10,
+        speed: 1.5 + Math.random() * 1.5
+      });
+    }
+
+    function fireBullet() {
+      bullets.push({ x: player.x, y: player.y - 20, vy: -8 });
+    }
+
+    function update() {
+      frame += 1;
+      if (frame % 40 === 0) spawnEnemy();
+
+      if (keys.left) player.x -= player.speed;
+      if (keys.right) player.x += player.speed;
+      player.x = Math.max(30, Math.min(canvas.width - 30, player.x));
+
+      if ((keys.fire || serialState.fire) && frame - lastFire > 12) {
+        fireBullet();
+        lastFire = frame;
+      }
+
+      if (Math.abs(serialState.x) > 120) {
+        player.x += Math.sign(serialState.x) * Math.min(6, Math.abs(serialState.x) / 120);
+      }
+
+      bullets.forEach(b => b.y += b.vy);
+      bullets = bullets.filter(b => b.y > -20);
+
+      enemies.forEach(e => e.y += e.speed);
+      enemies = enemies.filter(e => {
+        if (e.y > canvas.height + 30) {
+          lives -= 1;
+          livesEl.textContent = String(lives);
+          return false;
+        }
+        return true;
+      });
+
+      bullets = bullets.filter(b => {
+        let hit = false;
+        enemies = enemies.filter(e => {
+          const dx = b.x - e.x;
+          const dy = b.y - e.y;
+          const collided = Math.hypot(dx, dy) < e.r + 4;
+          if (collided) {
+            score += 10;
+            scoreEl.textContent = String(score);
+            hit = true;
+            return false;
+          }
+          return true;
+        });
+        return !hit;
+      });
+
+      if (lives <= 0) resetGame();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < 80; i++) {
+        const x = (i * 173) % canvas.width;
+        const y = (i * 97 + frame * 0.3) % canvas.height;
+        ctx.fillStyle = i % 7 === 0 ? 'rgba(250,204,21,0.8)' : 'rgba(255,255,255,0.25)';
+        ctx.fillRect(x, y, 2, 2);
+      }
+
+      ctx.fillStyle = '#5eead4';
+      ctx.beginPath();
+      ctx.moveTo(player.x, player.y - 24);
+      ctx.lineTo(player.x - player.w / 2, player.y + player.h / 2);
+      ctx.lineTo(player.x + player.w / 2, player.y + player.h / 2);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#facc15';
+      bullets.forEach(b => ctx.fillRect(b.x - 2, b.y - 10, 4, 12));
+
+      enemies.forEach(e => {
+        ctx.fillStyle = '#fb7185';
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') keys.left = true;
+      if (event.key === 'ArrowRight') keys.right = true;
+      if (event.key === ' ') {
+        event.preventDefault();
+        keys.fire = true;
+      }
+    });
+
+    document.addEventListener('keyup', event => {
+      if (event.key === 'ArrowLeft') keys.left = false;
+      if (event.key === 'ArrowRight') keys.right = false;
+      if (event.key === ' ') keys.fire = false;
+    });
+
+    document.getElementById('restart').addEventListener('click', resetGame);
+
+    document.getElementById('connect').addEventListener('click', async () => {
+      if (!('serial' in navigator)) {
+        statusEl.textContent = 'このブラウザでは Web Serial が使えません。';
+        return;
+      }
+      try {
+        const port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 115200 });
+        statusEl.textContent = 'micro:bit に接続しました。シリアル入力を待っています。';
+        const decoder = new TextDecoderStream();
+        port.readable.pipeTo(decoder.writable);
+        const reader = decoder.readable.getReader();
+        let buffer = '';
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buffer += value;
+          let idx;
+          while ((idx = buffer.indexOf('\n')) >= 0) {
+            const line = buffer.slice(0, idx).trim();
+            buffer = buffer.slice(idx + 1);
+            try {
+              const data = JSON.parse(line);
+              serialState.x = Number(data.x || 0);
+              serialState.fire = Number(data.fire || 0);
+            } catch {
+              console.warn('Invalid JSON from micro:bit:', line);
+            }
+          }
+        }
+      } catch (error) {
+        statusEl.textContent = '接続をキャンセルしたか、読み込みに失敗しました。';
+        console.error(error);
+      }
+    });
+
+    resetGame();
+    loop();
+  </script>
+</body>
+</html>

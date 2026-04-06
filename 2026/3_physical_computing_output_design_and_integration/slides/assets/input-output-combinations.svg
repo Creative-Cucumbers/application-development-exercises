@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#fbf7f0"/>
+  <text x="700" y="90" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" fill="#1f2937">入力と出力の組み合わせ</text>
+
+  <rect x="120" y="180" width="360" height="520" rx="28" fill="#d8eef2"/>
+  <rect x="920" y="180" width="360" height="520" rx="28" fill="#d8ead2"/>
+
+  <text x="300" y="255" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#111827">入力</text>
+  <text x="300" y="330" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">ボタン A / B</text>
+  <text x="300" y="390" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">加速度センサー</text>
+  <text x="300" y="450" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">温度センサー</text>
+  <text x="300" y="510" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">光センサー</text>
+  <text x="300" y="570" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">マイク</text>
+
+  <text x="1100" y="255" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#111827">出力</text>
+  <text x="1100" y="330" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">LED の表情</text>
+  <text x="1100" y="390" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">アイコン / 数字</text>
+  <text x="1100" y="450" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">アニメーション</text>
+  <text x="1100" y="510" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">単音</text>
+  <text x="1100" y="570" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">メロディ / リズム</text>
+
+  <line x1="480" y1="330" x2="920" y2="330" stroke="#5865f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="480" y1="390" x2="920" y2="450" stroke="#5865f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="480" y1="450" x2="920" y2="510" stroke="#5865f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="480" y1="510" x2="920" y2="390" stroke="#5865f2" stroke-width="5" stroke-linecap="round"/>
+  <line x1="480" y1="570" x2="920" y2="570" stroke="#5865f2" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="700" y="780" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#4b5563">1つ以上の入力を選び、光や音でどう反応するかを設計する</text>
+</svg>

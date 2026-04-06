@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f7f4ef"/>
+  <text x="700" y="90" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" fill="#1f2937">Day3 の AI 活用</text>
+  <text x="700" y="140" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#4b5563">深掘り → 整理 → 実装</text>
+
+  <rect x="90" y="250" width="260" height="260" rx="28" fill="#d8eef2"/>
+  <rect x="410" y="250" width="260" height="260" rx="28" fill="#f6dfb5"/>
+  <rect x="730" y="250" width="260" height="260" rx="28" fill="#e8d8f4"/>
+  <rect x="1050" y="250" width="260" height="260" rx="28" fill="#d8ead2"/>
+
+  <text x="220" y="320" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#111827">1. 考える</text>
+  <text x="220" y="375" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">どんな体験を</text>
+  <text x="220" y="410" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">作りたいかを</text>
+  <text x="220" y="445" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">言葉にする</text>
+
+  <text x="540" y="320" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#111827">2. 深掘りする</text>
+  <text x="540" y="375" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">AI に案を広げてもらう</text>
+  <text x="540" y="410" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">ひねりや別案を出す</text>
+  <text x="540" y="445" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">方向性を強くする</text>
+
+  <text x="860" y="320" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#111827">3. 整理する</text>
+  <text x="860" y="375" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">入力と出力を選ぶ</text>
+  <text x="860" y="410" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">反応のルールを決める</text>
+  <text x="860" y="445" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">試作しやすくする</text>
+
+  <text x="1180" y="320" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#111827">4. 実装する</text>
+  <text x="1180" y="375" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">AI に最初のコードを</text>
+  <text x="1180" y="410" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">出してもらい</text>
+  <text x="1180" y="445" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">試して直す</text>
+
+  <line x1="350" y1="380" x2="410" y2="380" stroke="#374151" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="410,380 382,362 382,398" fill="#374151"/>
+
+  <line x1="670" y1="380" x2="730" y2="380" stroke="#374151" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="730,380 702,362 702,398" fill="#374151"/>
+
+  <line x1="990" y1="380" x2="1050" y2="380" stroke="#374151" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="1050,380 1022,362 1022,398" fill="#374151"/>
+
+  <text x="700" y="690" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#4b5563">いきなり「コードを書いて」ではなく、まず AI を考えるために使う</text>
+</svg>
