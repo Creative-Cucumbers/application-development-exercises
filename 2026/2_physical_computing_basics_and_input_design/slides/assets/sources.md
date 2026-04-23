@@ -16,6 +16,10 @@
   - https://www.teamlab.art/concept/lightsculpture-point/
 - Exploratorium exhibit page for Zimoun work
   - https://www.exploratorium.edu/exhibits/405-prepared-dc-motors-cotton-balls-cardboard-boxes-46x46x46
+- Beijing humanoid robot half marathon, 2026 coverage
+  - https://www.theguardian.com/sport/2026/apr/19/humanoid-robots-race-beijing-half-marathon
+- Beijing humanoid robot half marathon, 2025 Reuters Connect video/source
+  - https://www.reutersconnect.com/item/china-pits-humanoid-robots-against-humans-in-half-marathon/dGFnOnJldXRlcnMuY29tLDIwMjU6bmV3c21sX0xWQTAwMTc2OTAxODA0MjAyNVJQMQ
 
 ## メモ
 
