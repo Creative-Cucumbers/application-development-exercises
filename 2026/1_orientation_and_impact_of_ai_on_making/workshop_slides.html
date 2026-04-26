@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day1 - 4限 ワークショップ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            padding: 60px 80px;
+            background: white;
+        }
+
+        .slide-container.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #764ba2;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .time-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px 30px;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 25px 0;
+            padding-left: 60px;
+            position: relative;
+            font-size: 1.4em;
+            line-height: 1.6;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .bullet-list li {
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .important-box {
+            background: #fff5e6;
+            border: 3px solid #ff9800;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+
+        .important-box h3 {
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .theme-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .column-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .column-box h4 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1.2em;
+            color: #666;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 1.2em;
+            color: #666;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .whiteboard-template {
+            background: white;
+            border: 3px solid #333;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            line-height: 2;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, #ffeb3b 60%);
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: タイトル -->
+    <div class="slide-container active">
+        <h1>4限：学生の自己紹介と<br>ワークショップ</h1>
+        <div class="subtitle">Day1 - アプリケーション開発演習</div>
+        <div class="time-box">所要時間：100分（15:40〜17:20）</div>
+    </div>
+
+    <!-- Slide 2: 本日のアジェンダ -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>本日のアジェンダ</h2>
+            <table>
+                <tr>
+                    <th>時間</th>
+                    <th>内容</th>
+                </tr>
+                <tr>
+                    <td>15:40 - 16:05 (25分)</td>
+                    <td>学生の自己紹介と講義への期待ヒアリング</td>
+                </tr>
+                <tr>
+                    <td>16:05 - 16:15 (10分)</td>
+                    <td>ワークショップ準備（チーム編成）</td>
+                </tr>
+                <tr>
+                    <td>16:15 - 16:27 (12分)</td>
+                    <td>発散と収束「期待と不安」</td>
+                </tr>
+                <tr>
+                    <td>16:27 - 16:42 (15分)</td>
+                    <td>発表と質疑応答「期待と不安」</td>
+                </tr>
+                <tr>
+                    <td>16:42 - 16:55 (13分)</td>
+                    <td>発散と収束「やってみたいこと」</td>
+                </tr>
+                <tr>
+                    <td>16:55 - 17:10 (15分)</td>
+                    <td>発表と質疑応答「やってみたいこと」</td>
+                </tr>
+                <tr>
+                    <td>17:10 - 17:20 (10分)</td>
+                    <td>振り返りと次回への接続</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 3: 自己紹介 -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>自己紹介と講義への期待ヒアリング</h2>
+            <div class="time-box">⏱ 25分（15:40〜16:05）</div>
+            <h3>目的</h3>
+            <ul class="bullet-list">
+                <li>お互いの顔と名前、バックグラウンドを知る</li>
+                <li>講義への期待や学びたいことを共有する</li>
+                <li>話しやすい雰囲気をつくる</li>
+            </ul>
+            <h3 style="margin-top: 40px;">話してほしいこと（1人1分）</h3>
+            <ol class="step-list">
+                <li>名前と所属</li>
+                <li>今まで受けた中で印象に残っている授業</li>
+                <li>この授業で学びたいこと</li>
+                <li>得意なこと・苦手なこと</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Slide 4: ワークショップの全体テーマ -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>ワークショップのテーマ</h2>
+            <div class="theme-box">
+                AIとフィジカルコンピューティングが<br>
+                つながると<br>
+                自分たちの人生は<br>
+                どう変わるだろうか？
+            </div>
+            <div class="important-box">
+                <h3>議題</h3>
+                <ul class="bullet-list">
+                    <li><span class="highlight">本講義に関する期待と不安</span></li>
+                    <li><span class="highlight">AI × フィジカルコンピューティングでやってみたいこと</span></li>
+                    <li>質問が思いついたら、その都度「疑問点」として書き出す</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: ワークショップ準備 -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>ワークショップ準備</h2>
+            <div class="time-box">⏱ 10分（16:05〜16:15）</div>
+            <h3>チーム編成</h3>
+            <ul class="bullet-list">
+                <li>21人を4チームに分ける（5人×3、6人×1）</li>
+                <li>ホワイトボードに議題ごとのテンプレートを作成</li>
+            </ul>
+            <h3 style="margin-top: 40px;">進め方の共有</h3>
+            <ul class="bullet-list">
+                <li>まずは<span class="highlight">量を出す</span></li>
+                <li>他者の意見を<span class="highlight">すぐ否定しない</span></li>
+                <li>なるべく<span class="highlight">「自分たちの学生生活」に引きつけて</span>考える</li>
+                <li>質問が思いついたら<span class="highlight">「疑問点」にメモ</span>しておく</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6: ホワイトボードテンプレート -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>ホワイトボードテンプレート</h2>
+            <div class="whiteboard-template">
+テーマ:
+AIとフィジカルコンピューティングがつながると
+自分たちの人生はどう変わるだろうか？
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 本講義に関する期待と不安
+
+  【期待】
+
+  【不安】
+
+
+2. AI × フィジカルコンピューティングでやってみたいこと
+
+
+3. 疑問点
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: ワーク1 - 発散と収束（期待と不安） -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>ワーク1：期待と不安</h2>
+            <div class="time-box">⏱ 12分（16:15〜16:27）</div>
+            <div class="two-column">
+                <div class="column-box">
+                    <h4>🌱 発散（6分）</h4>
+                    <ul class="bullet-list">
+                        <li>各自で「期待」と「不安」を付箋またはメモで<strong>できるだけ多く</strong>書く</li>
+                        <li>質問が出たら「疑問点」にも書く</li>
+                    </ul>
+                    <div style="margin-top: 20px; font-size: 1.1em;">
+                        <strong>例：</strong><br>
+                        期待：アプリ開発とフィジカルをつなげて学べそう<br>
+                        不安：バックエンドが難しそう
+                    </div>
+                </div>
+                <div class="column-box">
+                    <h4>🎯 収束（6分）</h4>
+                    <ul class="bullet-list">
+                        <li>似ている意見をまとめる</li>
+                        <li>チームとして重要な「期待」2-3個、「不安」2-3個を選ぶ</li>
+                        <li>ひとこと見出しを付ける</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: 発表1（期待と不安） -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>発表1：期待と不安</h2>
+            <div class="time-box">⏱ 15分（16:27〜16:42）</div>
+            <h3>発表形式（各チーム3分）</h3>
+            <ol class="step-list">
+                <li>発表：2分
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li>本講義に期待していること</li>
+                        <li>本講義に関して不安に思っていること</li>
+                        <li>なぜそう考えたか</li>
+                    </ul>
+                </li>
+                <li>質疑・コメント：1分
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li>他チームは共感した点や質問を1つ出す</li>
+                        <li>講師が観点を補足</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="important-box" style="margin-top: 30px;">
+                <strong>4チーム × 3分 + 講師補足3分 = 15分</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: ワーク2 - 発散と収束（やってみたいこと） -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>ワーク2：やってみたいこと</h2>
+            <div class="time-box">⏱ 13分（16:42〜16:55）</div>
+            <div class="two-column">
+                <div class="column-box">
+                    <h4>🌱 発散（7分）</h4>
+                    <ul class="bullet-list">
+                        <li>「AI × フィジカルコンピューティングでやってみたいこと」を具体化</li>
+                    </ul>
+                    <div style="margin-top: 15px; background: #e3f2fd; padding: 15px; border-radius: 5px;">
+                        <strong>考える観点：</strong><br>
+                        • 誰のどんな場面か<br>
+                        • 何を入力として取りたいか<br>
+                        • 何を出力・反応として返したいか<br>
+                        • AIをどこで使うと価値が出るか
+                    </div>
+                </div>
+                <div class="column-box">
+                    <h4>🎯 収束（6分）</h4>
+                    <ul class="bullet-list">
+                        <li>チームで実現してみたい案を1-2個に絞る</li>
+                        <li>「どの学生生活をどう変える案か」を一文でまとめる</li>
+                        <li>必要そうな入力、出力、アプリ側の役割を簡潔に整理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: 発表2（やってみたいこと） -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>発表2：やってみたいこと</h2>
+            <div class="time-box">⏱ 15分（16:55〜17:10）</div>
+            <h3>発表形式（各チーム3分）</h3>
+            <ol class="step-list">
+                <li>発表：2分
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li>変えたい学生生活の場面</li>
+                        <li>想定している入力・出力・AI活用</li>
+                        <li>その案の面白さ、または実現上の難しさ</li>
+                    </ul>
+                </li>
+                <li>質疑・コメント：1分
+                    <ul class="bullet-list" style="margin-top: 10px;">
+                        <li>他チームからのフィードバック</li>
+                        <li>講師が実装の入口や次回授業との接続を補足</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="important-box" style="margin-top: 30px;">
+                <strong>4チーム × 3分 + 講師補足3分 = 15分</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: 振り返りと次回への接続 -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>振り返りと次回への接続</h2>
+            <div class="time-box">⏱ 10分（17:10〜17:20）</div>
+            <h3>振り返り</h3>
+            <ul class="bullet-list">
+                <li>各チームでホワイトボードを見返し、<span class="highlight">印象に残った気づきを1つ共有</span></li>
+                <li>講師が全体の傾向を整理</li>
+            </ul>
+            <h3 style="margin-top: 40px;">次回への接続</h3>
+            <ul class="bullet-list">
+                <li><strong>Day2（4/23）</strong>ではセンサーやマイコンを扱う</li>
+                <li>今日出たアイデアの<span class="highlight">「入力」部分</span>に接続していく</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 12: 提出物 -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>提出物</h2>
+            <div class="important-box">
+                <h3>📤 提出するもの</h3>
+                <ul class="bullet-list">
+                    <li>チームのホワイトボード写真または内容を整理したメモ</li>
+                    <li>個人の振り返りメモ</li>
+                </ul>
+                <h3 style="margin-top: 30px;">📅 提出方法と期限</h3>
+                <ul class="bullet-list">
+                    <li>Slackのチャンネルに投稿</li>
+                    <li><strong>期限：Day2の前日（4/22）23:59まで</strong></li>
+                </ul>
+            </div>
+            <h3 style="margin-top: 40px;">評価のポイント</h3>
+            <ul class="bullet-list">
+                <li>期待と不安、やってみたいこと、疑問点が具体的に言語化されているか</li>
+                <li>学生生活の文脈に引きつけて考えられているか</li>
+                <li>発表や対話を通じて視点が広がっているか</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 13: まとめ -->
+    <div class="slide-container">
+        <div class="content">
+            <h2>本日のまとめ</h2>
+            <div style="text-align: center; margin: 40px 0;">
+                <div style="font-size: 1.8em; line-height: 2;">
+                    <span class="highlight">自己紹介</span>でお互いを知り<br>
+                    <span class="highlight">ワークショップ</span>で期待・不安・やってみたいことを言語化し<br>
+                    <span class="highlight">全体共有</span>で視点を広げました
+                </div>
+            </div>
+            <div class="important-box" style="margin-top: 50px;">
+                <h3>次回（Day2）に向けて</h3>
+                <ul class="bullet-list">
+                    <li>フィジカルコンピューティングの事例調査（2事例）</li>
+                    <li>マイコン基礎知識の整理</li>
+                    <li><strong>提出：Day2開始前までにSlackに投稿</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation hints -->
+    <div class="slide-number"></div>
+    <div class="navigation">← → で移動</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-container');
+        const slideNumber = document.querySelector('.slide-number');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            slideNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // タッチ操作のサポート
+        let touchStartX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX - touchEndX > 50) {
+                showSlide(currentSlide + 1);
+            } else if (touchEndX - touchStartX > 50) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // 初期表示
+        showSlide(0);
+    </script>
+</body>
+</html>

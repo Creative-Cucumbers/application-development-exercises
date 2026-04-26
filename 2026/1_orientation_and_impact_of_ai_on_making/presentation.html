@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day1：オリエンテーション / AIとものづくりに与える影響</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --accent: #f59e0b;
+            --text: #1f2937;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        .reveal {
+            font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+            font-size: 28px;
+        }
+
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal h1 {
+            font-size: 1.6em;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.4em;
+            line-height: 1.3;
+        }
+
+        .reveal h2 {
+            font-size: 1.2em;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.2em;
+        }
+
+        .reveal h3 {
+            font-size: 0.9em;
+            color: var(--text);
+            font-weight: 600;
+            margin: 0.6em 0 0.3em 0;
+        }
+
+        .reveal p {
+            font-size: 0.7em;
+            line-height: 1.6;
+            margin: 0.3em 0;
+        }
+
+        .reveal ul, .reveal ol {
+            font-size: 0.65em;
+            line-height: 1.5;
+            margin: 0.3em 0 0.3em 1.5em;
+        }
+
+        .reveal li {
+            margin-bottom: 0.25em;
+        }
+
+        .reveal ul ul, .reveal ol ol {
+            font-size: 0.95em;
+            margin-top: 0.2em;
+        }
+
+        .reveal table {
+            font-size: 0.5em;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0.5em 0;
+        }
+
+        .reveal table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5em 0.6em;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .reveal table td {
+            border: 1px solid var(--border);
+            padding: 0.4em 0.6em;
+            vertical-align: top;
+        }
+
+        .reveal table tr:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        .reveal strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+        }
+
+        .box {
+            background-color: var(--light);
+            padding: 0.8em;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            margin: 0.4em 0;
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .box ul {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background-color: #fef3c7;
+            padding: 0.8em;
+            border-radius: 6px;
+            border-left: 5px solid var(--accent);
+            margin: 0.5em 0;
+            font-size: 0.7em;
+        }
+
+        .title-slide {
+            text-align: center !important;
+        }
+
+        .title-slide h1 {
+            font-size: 1.8em;
+            margin-top: 2em;
+        }
+
+        .title-slide p {
+            font-size: 0.75em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .small {
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- タイトル -->
+            <section class="title-slide">
+                <h1>Day1：オリエンテーション<br>AIとものづくりに与える影響</h1>
+                <p><strong>アプリケーション開発演習</strong></p>
+                <p>2026年4月16日</p>
+                <p>担当：小島弘誉・伊藤尚祐</p>
+            </section>
+
+            <!-- アジェンダ -->
+            <section>
+                <h2>本日のアジェンダ</h2>
+                <div class="box">
+                    <h3>3限（13:40-15:20）オリエンテーションと授業全体像</h3>
+                    <ul>
+                        <li>担当教員紹介</li>
+                        <li>この授業のねらい</li>
+                        <li>AI時代の表現者・実装者ロードマップ</li>
+                        <li>評価方法と使用ツール</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>4限（15:40-17:20）学生の自己紹介とワークショップ</h3>
+                    <ul>
+                        <li>自己紹介と期待ヒアリング</li>
+                        <li>ワークショップ：期待と不安、やってみたいこと</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 教員紹介1 -->
+            <section>
+                <h2>担当教員紹介</h2>
+                <h3>小島弘誉（こじま ひろたか）</h3>
+                <ul>
+                    <li><strong>専門領域</strong>: アプリケーション開発、AIエージェント活用</li>
+                    <li><strong>担当回</strong>: Day1, 4, 5, 6, 7</li>
+                    <li><strong>伝えたいこと</strong>:
+                        <ul>
+                            <li>AIを「道具」として使いこなす力</li>
+                            <li>技術の本質を理解し、適切に判断する力</li>
+                            <li>実装を通じて学ぶ姿勢</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 教員紹介2 -->
+            <section>
+                <h2>担当教員紹介</h2>
+                <h3>伊藤尚祐（いとう なおすけ）</h3>
+                <ul>
+                    <li><strong>専門領域</strong>: フィジカルコンピューティング、アプリケーション開発</li>
+                    <li><strong>担当回</strong>: Day1, 2, 3, 6, 7</li>
+                    <li><strong>伝えたいこと</strong>:
+                        <ul>
+                            <li>物理世界とデジタルをつなぐ表現の面白さ</li>
+                            <li>ハードウェアとソフトウェアの両方を活用する可能性の大きさ</li>
+                            <li>AI を活用したものづくり</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 2年生→3年生 -->
+            <section>
+                <h2>2年生で学んだこと → 3年生でのレベルアップ</h2>
+                <div class="two-col">
+                    <div class="box">
+                        <h3>2年生</h3>
+                        <ul>
+                            <li>AIとは何か、生成AIの基礎</li>
+                            <li>バイブコーディングでのアプリ作成</li>
+                            <li>フロントエンド開発の基礎</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>3年生（本講義）</h3>
+                        <ul>
+                            <li><strong>バックエンド技術</strong>の理解と実装</li>
+                            <li><strong>データベース設計</strong>と操作</li>
+                            <li><strong>ユーザー認証・権限管理</strong></li>
+                            <li><strong>フィジカルコンピューティング</strong>との統合</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 授業の3つの柱 -->
+            <section>
+                <h2>授業の3つの柱</h2>
+                <div class="box">
+                    <h3>1. 本格的なアプリ開発技術の習得</h3>
+                    <ul>
+                        <li>バックエンド（Node.js、Python等）でAPI開発</li>
+                        <li>データベース（Firebase、Supabase等）でデータ管理</li>
+                        <li>認証（ユーザー登録・ログイン・権限管理）の実装</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>2. フィジカルコンピューティング</h3>
+                    <ul>
+                        <li>センサーによる物理情報の取得</li>
+                        <li>アクチュエータによる物理世界への出力</li>
+                        <li>デジタルと物理をつなぐインタラクション設計</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 授業の3つの柱（続き） -->
+            <section>
+                <h2>授業の3つの柱</h2>
+                <div class="box">
+                    <h3>3. 総合演習による統合</h3>
+                    <ul>
+                        <li>フィジカル + フロントエンド + バックエンド + データベースを統合</li>
+                        <li>自分でテーマを設定し、企画・設計・実装・発表</li>
+                        <li>レビューとフィードバックによる改善</li>
+                    </ul>
+                </div>
+                <div class="highlight">
+                    <strong>具体例</strong>: IoTデバイスからデータを取得し、Webアプリで可視化・分析し、デバイスを遠隔制御するシステム
+                </div>
+            </section>
+
+            <!-- なぜ今 -->
+            <section>
+                <h2>なぜ今、バックエンド・データベース・フィジカルなのか</h2>
+                <div class="box">
+                    <h3>バックエンド・データベースの重要性</h3>
+                    <ul>
+                        <li>フロントエンドだけでは本格的なアプリは作れない</li>
+                        <li>データの永続化、ユーザー管理、セキュリティは必須技術</li>
+                        <li><strong>例</strong>: SNSアプリには投稿データの保存、ユーザー認証、APIが必要</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>フィジカルコンピューティングの重要性</h3>
+                    <ul>
+                        <li>デジタル体験を物理世界に拡張 → 新しい価値創出</li>
+                        <li>スマートホーム、ウェアラブル、ロボティクスなど成長市場</li>
+                        <li>「画面の中だけ」ではない、五感に訴える体験設計</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 目指す姿 -->
+            <section>
+                <h2>この授業を通じて目指す姿</h2>
+                <div class="box">
+                    <h3>2年生からのレベルアップ</h3>
+                    <ul>
+                        <li>フロントエンドだけ → <strong>フルスタック開発</strong></li>
+                        <li>バイブコーディング → <strong>コードベースの開発</strong></li>
+                        <li>画面の中だけ → <strong>物理世界と連携</strong></li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>3つの「できる」人になる</h3>
+                    <ol>
+                        <li><strong>技術を「使いこなせる」人</strong></li>
+                        <li><strong>課題を「解決できる」人</strong></li>
+                        <li><strong>価値を「届けられる」人</strong></li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- AI時代のロードマップ -->
+            <section>
+                <h2>AI時代の表現者・実装者ロードマップ</h2>
+                <div class="box">
+                    <h3>なぜ「表現者・実装者」なのか</h3>
+                    <ul>
+                        <li>従来：デザイナー、エンジニア、クリエイターが明確に分離</li>
+                        <li>AI時代：表現と実装の境界が曖昧に</li>
+                    </ul>
+                </div>
+                <div class="highlight">
+                    <strong>重要</strong>: 職業を早期に固定せず、<strong>可動域を広げる</strong>
+                </div>
+                <div class="two-col small">
+                    <div>
+                        <strong>2年生</strong><br>
+                        AIの基礎、バイブコーディング、フロントエンド
+                    </div>
+                    <div>
+                        <strong>3年生</strong><br>
+                        表現と実装を横断する力
+                    </div>
+                </div>
+            </section>
+
+            <!-- 生成AIの影響 -->
+            <section>
+                <h2>生成AI・ノーコードがものづくりをどう変えたか</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>工程</th>
+                            <th>従来</th>
+                            <th>AI活用で起きた変化</th>
+                            <th>この授業で重視すること</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>発想</td>
+                            <td>個人で時間をかけて構想</td>
+                            <td>短時間で多数の案を比較</td>
+                            <td>良い問いを立て、案を選び直す力</td>
+                        </tr>
+                        <tr>
+                            <td>試作</td>
+                            <td>準備に時間がかかる</td>
+                            <td>すぐに試せる</td>
+                            <td>小さく試し、仮説を検証する力</td>
+                        </tr>
+                        <tr>
+                            <td>実装</td>
+                            <td>文法習得が先に必要</td>
+                            <td>動くものの初速が上がる</td>
+                            <td><strong>動いた理由を理解し、保守できる力</strong></td>
+                        </tr>
+                        <tr>
+                            <td>検証</td>
+                            <td>人手での確認</td>
+                            <td>AIに観点出しを頼める</td>
+                            <td>出力を鵜呑みにせず、検証する力</td>
+                        </tr>
+                        <tr>
+                            <td>発表</td>
+                            <td>制作意図が後回し</td>
+                            <td>資料を素早く作れる</td>
+                            <td>価値・根拠を自分の言葉で説明する力</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 5つの成長段階 -->
+            <section>
+                <h2>AI時代の5つの成長段階</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>段階</th>
+                            <th>到達目標</th>
+                            <th>この講義での位置づけ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. 知る</strong></td>
+                            <td>AIの可能性と限界を理解</td>
+                            <td><strong>Day1で扱う</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. 試す</strong></td>
+                            <td>自分の構想を試作品に変える</td>
+                            <td><strong>Day2-5の中心</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. 深める</strong></td>
+                            <td>表現または実装の専門性を深める</td>
+                            <td><strong>Day6-7の中心</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. 共創する</strong></td>
+                            <td>AIを含む制作体制を設計</td>
+                            <td>後期：ソフトウェア開発演習</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. 社会に届ける</strong></td>
+                            <td>成果を説明し価値として提示</td>
+                            <td>後期：ソフトウェア開発演習</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 全7日間 -->
+            <section>
+                <h2>全7日間の進行イメージ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>日程</th>
+                            <th>主な内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Day1</strong></td>
+                            <td>4/16</td>
+                            <td>オリエンテーション、AI活用の可能性と課題</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day2</strong></td>
+                            <td>4/23</td>
+                            <td>フィジカル基礎：マイコン、センサー入力</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day3</strong></td>
+                            <td>4/30</td>
+                            <td>フィジカル出力：アクチュエータ、入出力の組み合わせ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day4</strong></td>
+                            <td>5/7</td>
+                            <td>コーディングエージェント、フロントエンド設計</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day5</strong></td>
+                            <td>5/14</td>
+                            <td>バックエンド、データベース、認証、デバッグ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day6</strong></td>
+                            <td>5/21</td>
+                            <td>総合演習：テーマ設計・実装</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Day7</strong></td>
+                            <td>5/28</td>
+                            <td>総合演習：レビュー・改善・最終プレゼン</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 評価方法 -->
+            <section>
+                <h2>評価方法（3つの観点）</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>観点</th>
+                            <th>配点</th>
+                            <th>主な評価対象</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>知識・情報収集力</strong></td>
+                            <td>30%</td>
+                            <td>授業内課題、事前事後学修、小レポート</td>
+                        </tr>
+                        <tr>
+                            <td><strong>論理的思考力</strong></td>
+                            <td>40%</td>
+                            <td>制作物、授業内課題、期末レポート</td>
+                        </tr>
+                        <tr>
+                            <td><strong>発想・構想力</strong></td>
+                            <td>30%</td>
+                            <td>制作物、発表・デモ、振り返りレポート</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="box" style="margin-top: 1em;">
+                    <h3>評価のポイント</h3>
+                    <ul>
+                        <li>AIの出力を検証し、適切な技術を選択できるか</li>
+                        <li>システム全体の構造を理解し、論理的に設計できるか</li>
+                        <li>独自性と実現性を両立した提案ができるか</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 提出物 -->
+            <section>
+                <h2>提出物</h2>
+                <div class="two-col">
+                    <div>
+                        <div class="box">
+                            <h3>授業内</h3>
+                            <ul>
+                                <li>授業内課題・演習の記録</li>
+                                <li>Slackでの成果共有</li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <h3>総合演習（Day6-7）</h3>
+                            <ul>
+                                <li>制作物（動作するシステム）</li>
+                                <li>プレゼンテーション資料</li>
+                                <li>期末レポート / 振り返りレポート</li>
+                                <li>デモ動画（任意）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>提出方法</h3>
+                        <ul>
+                            <li>小課題・共有物：<strong>Slack</strong></li>
+                            <li>レポート等：<strong>Google Classroom</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 使用ツール -->
+            <section>
+                <h2>使用予定ツール</h2>
+                <div class="two-col">
+                    <div>
+                        <div class="box">
+                            <h3>AI・開発ツール</h3>
+                            <ul>
+                                <li>ChatGPT、Gemini、Google AI Studio</li>
+                                <li>GitHub Copilot、Cursor等</li>
+                            </ul>
+                        </div>
+                        <div class="box">
+                            <h3>フィジカルコンピューティング</h3>
+                            <ul>
+                                <li>マイコン（Arduino、ESP32等）</li>
+                                <li>センサー（温度、光、距離、加速度等）</li>
+                                <li>アクチュエータ（LED、モーター、スピーカー等）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h3>アプリ開発</h3>
+                        <ul>
+                            <li>フロントエンド（React、Next.js等）</li>
+                            <li>バックエンド（Node.js、Python等）</li>
+                            <li>データベース（Firebase、Supabase等）</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 参加姿勢 -->
+            <section>
+                <h2>参加姿勢と学習のコツ</h2>
+                <div class="box">
+                    <h3>積極的な参加</h3>
+                    <ul>
+                        <li>わからないことは授業中に質問</li>
+                        <li>ワークショップで自分の考えを言語化</li>
+                        <li>他の人の発表から学ぶ</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>AIとの協働</h3>
+                    <ul>
+                        <li>AIは「助手」であり、「代わりに全部やってくれる存在」ではない</li>
+                        <li>出力を鵜呑みにせず、<strong>必ず自分で検証</strong></li>
+                        <li>うまくいかないときはプロンプトを工夫</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>試行錯誤を楽しむ</h3>
+                    <ul>
+                        <li>最初からうまくいくことは稀</li>
+                        <li><strong>エラーは学びの機会</strong></li>
+                        <li>小さく作って、動かして、改善する</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 重要なメッセージ -->
+            <section>
+                <h2>重要なメッセージ</h2>
+                <div class="box" style="background-color: #fef3c7;">
+                    <h3>💡 AIは道具であり、パートナー</h3>
+                    <ul>
+                        <li>AIに全てを任せるのではなく、協働する</li>
+                        <li>出力を検証し、自分で判断する力が重要</li>
+                    </ul>
+                </div>
+                <div class="box" style="background-color: #dbeafe;">
+                    <h3>🎯 技術は手段、目的はユーザー価値</h3>
+                    <ul>
+                        <li>技術ありきではなく、課題起点で考える</li>
+                        <li>誰のために、何を解決するのかを常に意識</li>
+                    </ul>
+                </div>
+                <div class="box" style="background-color: #dcfce7;">
+                    <h3>🚀 失敗を恐れず、試行錯誤を楽しむ</h3>
+                    <ul>
+                        <li>エラーは学びの機会</li>
+                        <li>小さく作って、動かして、改善する</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ワークショップ -->
+            <section>
+                <h2>ワークショップ（4限）</h2>
+                <div class="highlight">
+                    <h3>テーマ</h3>
+                    <p style="font-size: 1em; font-weight: 600;">「AIとフィジカルコンピューティングがつながると<br>自分たち学生の生活はどう変わるだろうか？」</p>
+                </div>
+                <div class="box">
+                    <h3>議題</h3>
+                    <ol>
+                        <li>本講義に関する期待と不安</li>
+                        <li>AI × フィジカルコンピューティングでやってみたいこと</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>進め方</h3>
+                    <ul>
+                        <li>18人を4チーム（5人×2、4人×2）に分ける</li>
+                        <li>発散 → 収束 → 発表</li>
+                        <li>質問が思いついたら「疑問点」として書き出す</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Day1事後学習 -->
+            <section>
+                <h2>Day1 事後学習課題</h2>
+                <div class="box">
+                    <h3>課題1: ワークショップのメモ整理</h3>
+                    <ul>
+                        <li>チームのホワイトボード内容の整理</li>
+                        <li>自分が印象に残った期待・不安・やってみたいこと・疑問点</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>課題2: 振り返りと学習計画</h3>
+                    <ol>
+                        <li>今日の授業で最も印象に残ったこと（200字程度）</li>
+                        <li>AIとフィジカルがつながることで学生生活がどう変わるか（200字程度）</li>
+                        <li>この授業で自分が伸ばしたい力（200字程度）</li>
+                        <li>Day7までの学習目標（2-3個）と次回までに行う準備</li>
+                    </ol>
+                </div>
+                <p style="text-align: center; font-size: 0.8em; margin-top: 1em;"><strong>提出期限: 4/22（火）23:59まで（Slack）</strong></p>
+            </section>
+
+            <!-- Day2事前学習 -->
+            <section>
+                <h2>Day2 事前学習課題</h2>
+                <div class="box">
+                    <h3>課題1: フィジカルコンピューティングの事例調査</h3>
+                    <p>事例を2つ調べ、以下をまとめる：</p>
+                    <ol>
+                        <li>プロジェクト名・概要</li>
+                        <li>使用しているセンサー（入力）</li>
+                        <li>使用しているアクチュエータ（出力）</li>
+                        <li>どんな価値を提供しているか</li>
+                    </ol>
+                    <p><strong>推奨サイト</strong>: Arduino Project Hub、Instructables、Hackster.io</p>
+                </div>
+                <div class="box">
+                    <h3>課題2: マイコンの基礎知識</h3>
+                    <ul>
+                        <li>Arduino、ESP32について調べる</li>
+                        <li>デジタル入出力、アナログ入出力、PWM、シリアル通信の意味を理解</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; font-size: 0.8em; margin-top: 1em;"><strong>提出: Day2授業開始時まで（Slack）</strong></p>
+            </section>
+
+            <!-- 次回 -->
+            <section>
+                <h2>次回：Day2（4/23）</h2>
+                <div class="highlight">
+                    <h3>フィジカルコンピューティング：基礎・入力</h3>
+                    <ul>
+                        <li>マイコン（Arduino、ESP32）の基礎</li>
+                        <li>センサーの種類と使い方</li>
+                        <li>データ取得と可視化</li>
+                        <li><strong>実習</strong>: 温度センサーや光センサーを使ってデータ取得</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>準備</h3>
+                    <ul>
+                        <li>事前学習課題の提出</li>
+                        <li>必要に応じてArduino IDEのインストール</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 質問 -->
+            <section>
+                <h2>質問・相談</h2>
+                <div class="box">
+                    <h3>質問方法</h3>
+                    <ul>
+                        <li><strong>授業中</strong>: 手を挙げて質問</li>
+                        <li><strong>授業後</strong>: Slackで質問・相談</li>
+                        <li><strong>オフィスアワー</strong>: 別途案内</li>
+                    </ul>
+                </div>
+                <div class="center" style="margin-top: 2em;">
+                    <h3 style="font-size: 1.2em;">今日の質問は？</h3>
+                </div>
+            </section>
+
+            <!-- 終了 -->
+            <section class="title-slide">
+                <h1>ありがとうございました</h1>
+                <p style="font-size: 1em; margin-top: 2em;">次回もよろしくお願いします！</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'slide',
+            width: 1280,
+            height: 720,
+            margin: 0.08,
+            center: false,
+            plugins: []
+        });
+    </script>
+</body>
+</html>
