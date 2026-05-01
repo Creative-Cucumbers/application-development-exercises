@@ -13,7 +13,7 @@
 
 ### Day3. 4/30（伊藤） [フィジカルコンピューティング：出力設計 / フィジカルコンピューティング：組み合わせる](./3_physical_computing_output_design_and_integration/)
 
-### Day4. 5/7（小島） [アプリ開発：コーディングエージェントと開発環境 / アプリ開発：フロントエンド設計](./4_app_development_coding_agent_and_frontend_design/)
+### Day4. 5/7（小島） [アプリ開発：バイブコーディングの振り返り・コーディングエージェントと開発環境・データ](./4_app_development_coding_agent_and_frontend_design/)
 
 ### Day5. 5/14（小島） [アプリ開発：バックエンドとデータベース / アプリ開発：認証とデバッグ](./5_app_development_backend_authentication_and_debugging/)
 
