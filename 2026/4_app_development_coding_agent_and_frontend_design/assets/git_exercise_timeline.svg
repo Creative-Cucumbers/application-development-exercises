@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Git演習の時系列</title>
+  <desc id="desc">hello.htmlを作る、コミットする、変更する、diffを見る、元に戻す流れ。</desc>
+  <defs><marker id="a" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 12 6 0 12z" fill="#2563eb"/></marker></defs>
+  <rect width="1200" height="430" fill="#f8fafc"/>
+  <text x="600" y="64" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="32" font-weight="700" fill="#111827">Gitはコードのセーブポイント</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <line x1="130" y1="205" x2="1070" y2="205" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+    <g>
+      <circle cx="150" cy="205" r="38" fill="#eff6ff" stroke="#93c5fd" stroke-width="4"/><text x="150" y="212" font-size="22" font-weight="700" fill="#1e3a8a">1</text>
+      <text x="150" y="280" font-size="19" font-weight="700" fill="#111827">作る</text><text x="150" y="310" font-size="16" fill="#475569">hello.html</text>
+      <circle cx="380" cy="205" r="38" fill="#f0fdf4" stroke="#86efac" stroke-width="4"/><text x="380" y="212" font-size="22" font-weight="700" fill="#166534">2</text>
+      <text x="380" y="280" font-size="19" font-weight="700" fill="#111827">コミット</text><text x="380" y="310" font-size="16" fill="#475569">ここに戻れる</text>
+      <circle cx="610" cy="205" r="38" fill="#fff7ed" stroke="#fdba74" stroke-width="4"/><text x="610" y="212" font-size="22" font-weight="700" fill="#9a3412">3</text>
+      <text x="610" y="280" font-size="19" font-weight="700" fill="#111827">変更</text><text x="610" y="310" font-size="16" fill="#475569">AIに依頼</text>
+      <circle cx="840" cy="205" r="38" fill="#fefce8" stroke="#facc15" stroke-width="4"/><text x="840" y="212" font-size="22" font-weight="700" fill="#854d0e">4</text>
+      <text x="840" y="280" font-size="19" font-weight="700" fill="#111827">diff確認</text><text x="840" y="310" font-size="16" fill="#475569">どこが変わった?</text>
+      <circle cx="1070" cy="205" r="38" fill="#faf5ff" stroke="#c4b5fd" stroke-width="4"/><text x="1070" y="212" font-size="22" font-weight="700" fill="#5b21b6">5</text>
+      <text x="1070" y="280" font-size="19" font-weight="700" fill="#111827">戻す</text><text x="1070" y="310" font-size="16" fill="#475569">Discard Changes</text>
+    </g>
+    <path d="M1040 155 C820 70 565 70 405 158" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="9 9" marker-end="url(#a)"/>
+    <text x="720" y="106" font-size="18" font-weight="700" fill="#1d4ed8">コミット直後の状態へ戻る</text>
+  </g>
+</svg>

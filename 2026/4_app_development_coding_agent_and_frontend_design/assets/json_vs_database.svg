@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">JSON保存とデータベース検索の比較</title>
+  <desc id="desc">巨大なJSONファイルを毎回読む方法と、SQLで必要な結果を取り出す方法を比較する図。</desc>
+  <rect width="1200" height="500" fill="#f8fafc"/>
+  <text x="600" y="66" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="33" font-weight="700" fill="#111827">大量データでは、探し方が重要になる</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <rect x="95" y="130" width="455" height="270" rx="20" fill="#fef2f2" stroke="#fca5a5" stroke-width="3"/>
+    <text x="322.5" y="185" font-size="27" font-weight="700" fill="#991b1b">JSONファイルで毎回探す</text>
+    <text x="322.5" y="242" font-size="21" font-weight="700" fill="#111827">100万件を読み込む</text>
+    <text x="322.5" y="284" font-size="19" fill="#475569">全部を見る → 条件で絞る → 数える</text>
+    <text x="322.5" y="336" font-size="22" font-weight="700" fill="#dc2626">コードが長くなりやすい</text>
+    <rect x="650" y="130" width="455" height="270" rx="20" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+    <text x="877.5" y="185" font-size="27" font-weight="700" fill="#166534">データベースに聞く</text>
+    <text x="877.5" y="242" font-size="21" font-weight="700" fill="#111827">SQLで条件を伝える</text>
+    <text x="877.5" y="284" font-size="19" fill="#475569">SELECT / WHERE / GROUP BY</text>
+    <text x="877.5" y="336" font-size="22" font-weight="700" fill="#16a34a">必要な結果だけ取り出せる</text>
+    <text x="600" y="455" font-size="20" font-weight="700" fill="#334155">データベースは「保存する場所」であり、「探しやすくする仕組み」でもある</text>
+  </g>
+</svg>

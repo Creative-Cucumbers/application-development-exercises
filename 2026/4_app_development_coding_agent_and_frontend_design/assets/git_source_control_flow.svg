@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">VSCode Source Control の基本操作</title>
+  <desc id="desc">Initialize Repository、Changes、Stage、Commit、gitignore確認の流れ。</desc>
+  <defs><marker id="a" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0 12 6 0 12z" fill="#2563eb"/></marker></defs>
+  <rect width="1200" height="500" fill="#f8fafc"/>
+  <text x="600" y="66" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="33" font-weight="700" fill="#111827">VSCode Source Control の流れ</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="70" y="132" width="1060" height="250" rx="18" fill="#fff" stroke="#dbe4ef" stroke-width="2"/>
+    <rect x="110" y="172" width="160" height="120" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <rect x="315" y="172" width="160" height="120" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+    <rect x="520" y="172" width="160" height="120" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <rect x="725" y="172" width="160" height="120" rx="14" fill="#fefce8" stroke="#facc15" stroke-width="3"/>
+    <rect x="930" y="172" width="160" height="120" rx="14" fill="#faf5ff" stroke="#c4b5fd" stroke-width="3"/>
+    <g text-anchor="middle">
+      <text x="190" y="217" font-size="20" font-weight="700" fill="#1e3a8a">初期化</text><text x="190" y="251" font-size="16" fill="#475569">Initialize</text>
+      <text x="395" y="217" font-size="20" font-weight="700" fill="#166534">変更確認</text><text x="395" y="251" font-size="16" fill="#475569">Changesを見る</text>
+      <text x="600" y="217" font-size="20" font-weight="700" fill="#9a3412">ステージ</text><text x="600" y="251" font-size="16" fill="#475569">+ を押す</text>
+      <text x="805" y="217" font-size="20" font-weight="700" fill="#854d0e">コミット</text><text x="805" y="251" font-size="16" fill="#475569">メッセージを書く</text>
+      <text x="1010" y="217" font-size="20" font-weight="700" fill="#5b21b6">除外確認</text><text x="1010" y="251" font-size="16" fill="#475569">.gitignore</text>
+    </g>
+    <path d="M275 232h30M480 232h30M685 232h30M890 232h30" stroke="#2563eb" stroke-width="4" marker-end="url(#a)"/>
+    <text x="600" y="442" text-anchor="middle" font-size="19" font-weight="700" fill="#334155">AIに作らせる前に、戻れる場所を作っておく</text>
+  </g>
+</svg>

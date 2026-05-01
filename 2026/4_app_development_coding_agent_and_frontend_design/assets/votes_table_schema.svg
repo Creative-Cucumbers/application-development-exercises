@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">votesテーブルの構造</title>
+  <desc id="desc">投票1回がvotesテーブルの1行になり、id、option、voted_atの3列を持つことを示す図。</desc>
+  <rect width="1200" height="500" fill="#f8fafc"/>
+  <text x="600" y="66" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="33" font-weight="700" fill="#111827">投票1回 = votes テーブルの1行</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="150" y="125" width="900" height="270" rx="18" fill="#fff" stroke="#dbe4ef" stroke-width="3"/>
+    <rect x="150" y="125" width="900" height="62" rx="18" fill="#eff6ff"/>
+    <line x1="330" y1="125" x2="330" y2="395" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="600" y1="125" x2="600" y2="395" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="150" y1="187" x2="1050" y2="187" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="150" y1="247" x2="1050" y2="247" stroke="#e2e8f0" stroke-width="2"/>
+    <line x1="150" y1="307" x2="1050" y2="307" stroke="#e2e8f0" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="240" y="165" font-size="22" font-weight="700" fill="#1e3a8a">id</text>
+      <text x="465" y="165" font-size="22" font-weight="700" fill="#1e3a8a">option</text>
+      <text x="825" y="165" font-size="22" font-weight="700" fill="#1e3a8a">voted_at</text>
+      <text x="240" y="224" font-size="20" fill="#111827">1</text><text x="465" y="224" font-size="20" fill="#111827">ラーメン</text><text x="825" y="224" font-size="20" fill="#475569">投票された時刻</text>
+      <text x="240" y="284" font-size="20" fill="#111827">2</text><text x="465" y="284" font-size="20" fill="#111827">寿司</text><text x="825" y="284" font-size="20" fill="#475569">投票された時刻</text>
+      <text x="240" y="344" font-size="20" fill="#111827">3</text><text x="465" y="344" font-size="20" fill="#111827">ラーメン</text><text x="825" y="344" font-size="20" fill="#475569">投票された時刻</text>
+    </g>
+    <text x="600" y="452" text-anchor="middle" font-size="20" font-weight="700" fill="#334155">集計は option ごとに行を数える: SELECT option, COUNT(*) ... GROUP BY option</text>
+  </g>
+</svg>

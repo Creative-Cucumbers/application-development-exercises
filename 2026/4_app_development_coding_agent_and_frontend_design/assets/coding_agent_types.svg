@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">コーディングエージェントの3分類</title>
+  <desc id="desc">ターミナル型、IDE統合型、ブラウザ型の違いを、使う場所と得意なことから比較する図。</desc>
+  <defs>
+    <filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#334155" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="600" y="74" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="34" font-weight="700" fill="#111827">コーディングエージェントの3つの使い方</text>
+  <text x="600" y="112" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">どこでAIに指示を出し、どこまで作業を任せるかが違う</text>
+  <g filter="url(#s)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="72" y="168" width="320" height="270" rx="18" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <rect x="440" y="168" width="320" height="270" rx="18" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+    <rect x="808" y="168" width="320" height="270" rx="18" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <text x="232" y="224" text-anchor="middle" font-size="29" font-weight="700" fill="#1e3a8a">ターミナル型</text>
+    <text x="232" y="267" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">Gemini CLI</text>
+    <text x="232" y="319" text-anchor="middle" font-size="19" fill="#475569">コマンドで指示する</text>
+    <text x="232" y="352" text-anchor="middle" font-size="19" fill="#475569">ローカルファイルを直接操作</text>
+    <text x="232" y="401" text-anchor="middle" font-size="18" font-weight="700" fill="#2563eb">今日使う</text>
+    <text x="600" y="224" text-anchor="middle" font-size="29" font-weight="700" fill="#166534">IDE統合型</text>
+    <text x="600" y="267" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">Copilot / Cursor</text>
+    <text x="600" y="319" text-anchor="middle" font-size="19" fill="#475569">エディタの中で相談する</text>
+    <text x="600" y="352" text-anchor="middle" font-size="19" fill="#475569">補完とチャットが近い</text>
+    <text x="600" y="401" text-anchor="middle" font-size="18" font-weight="700" fill="#16a34a">総合演習で選択可</text>
+    <text x="968" y="224" text-anchor="middle" font-size="29" font-weight="700" fill="#9a3412">ブラウザ型</text>
+    <text x="968" y="267" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">ChatGPT / Claude</text>
+    <text x="968" y="319" text-anchor="middle" font-size="19" fill="#475569">ブラウザで質問する</text>
+    <text x="968" y="352" text-anchor="middle" font-size="19" fill="#475569">説明・設計・相談が得意</text>
+    <text x="968" y="401" text-anchor="middle" font-size="18" font-weight="700" fill="#ea580c">並行して使える</text>
+  </g>
+  <text x="600" y="502" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="20" font-weight="700" fill="#334155">今日の主役は「ターミナル型」: Gemini CLI がファイルを作り、コマンドも実行する</text>
+</svg>
