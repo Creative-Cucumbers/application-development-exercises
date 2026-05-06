@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">server.js が index.html と votes.db をつなぐ流れ</title>
+  <desc id="desc">初回表示ではブラウザが server.js にページを要求し、server.js が index.html を返す。投票時はブラウザが POST /vote を server.js に送り、server.js が votes.db に保存して集計結果を返す。</desc>
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#2563eb"/>
+    </marker>
+    <marker id="green-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#16a34a"/>
+    </marker>
+    <marker id="orange-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#ea580c"/>
+    </marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#334155" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <text x="640" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="35" font-weight="700" fill="#111827">server.js は画面表示とデータ保存の入口になる</text>
+  <text x="640" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">ブラウザは votes.db を直接触らず、必ず server.js にお願いする</text>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g filter="url(#shadow)">
+      <rect x="62" y="162" width="306" height="390" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="487" y="148" width="306" height="418" rx="22" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+      <rect x="912" y="162" width="306" height="390" rx="22" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    </g>
+
+    <text x="215" y="216" text-anchor="middle" font-size="29" font-weight="700" fill="#1e3a8a">ブラウザ</text>
+    <text x="215" y="252" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">http://localhost:3000</text>
+    <rect x="105" y="344" width="220" height="126" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="215" y="384" text-anchor="middle" font-size="21" font-weight="700" fill="#111827">表示された画面</text>
+    <text x="215" y="417" text-anchor="middle" font-size="18" fill="#475569">index.html</text>
+    <text x="215" y="448" text-anchor="middle" font-size="18" fill="#475569">投票ボタン</text>
+
+    <text x="640" y="202" text-anchor="middle" font-size="29" font-weight="700" fill="#166534">Node.js サーバー</text>
+    <text x="640" y="240" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">server.js</text>
+    <rect x="530" y="286" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="325" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">index.html を配信</text>
+    <rect x="530" y="386" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="425" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">POST /vote を受け取る</text>
+    <rect x="530" y="486" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="525" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">GET /votes を返す</text>
+
+    <text x="1065" y="216" text-anchor="middle" font-size="29" font-weight="700" fill="#9a3412">SQLite</text>
+    <text x="1065" y="254" text-anchor="middle" font-size="30" font-weight="700" fill="#111827">votes.db</text>
+    <rect x="972" y="350" width="186" height="120" rx="14" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+    <text x="1065" y="387" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">votes テーブル</text>
+    <line x1="1000" y1="411" x2="1130" y2="411" stroke="#94a3b8"/>
+    <line x1="1000" y1="439" x2="1130" y2="439" stroke="#e2e8f0"/>
+    <line x1="1044" y1="411" x2="1044" y2="459" stroke="#94a3b8"/>
+    <text x="1022" y="431" text-anchor="middle" font-size="13" fill="#475569">id</text>
+    <text x="1086" y="431" text-anchor="middle" font-size="13" fill="#475569">option</text>
+    <text x="1022" y="456" text-anchor="middle" font-size="13" fill="#475569">1</text>
+    <text x="1086" y="456" text-anchor="middle" font-size="13" fill="#475569">ラーメン</text>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="93" y="276" width="244" height="46" rx="18" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="215" y="295" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">A. 青の矢印</text>
+    <text x="215" y="315" text-anchor="middle" font-size="13" fill="#475569">ページを開くとき</text>
+    <path d="M 368 292 L 487 292" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <rect x="389" y="246" width="86" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="432" y="268" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">1. GET /</text>
+
+    <path d="M 487 326 L 368 326" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <rect x="370" y="340" width="162" height="34" rx="17" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="451" y="363" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">2. index.html を返す</text>
+
+    <rect x="918" y="276" width="294" height="46" rx="18" fill="#ffedd5" stroke="#fdba74"/>
+    <text x="1065" y="295" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">B. 緑・橙の矢印</text>
+    <text x="1065" y="315" text-anchor="middle" font-size="13" fill="#475569">投票して保存するとき</text>
+    <path d="M 368 432 L 487 432" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+    <rect x="376" y="466" width="206" height="34" rx="17" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="479" y="489" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">3. fetch POST /vote</text>
+
+    <path d="M 793 432 L 912 432" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+    <rect x="817" y="386" width="110" height="32" rx="16" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="872" y="408" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">4. SQL INSERT</text>
+
+    <path d="M 912 500 L 793 500" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+    <rect x="805" y="514" width="124" height="32" rx="16" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="867" y="536" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">5. 集計結果</text>
+
+    <path d="M 487 516 L 368 516" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+    <rect x="370" y="530" width="160" height="34" rx="17" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="450" y="553" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">6. JSONで返す</text>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <rect x="162" y="650" width="956" height="58" rx="20" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+    <text x="640" y="686" font-size="20" font-weight="700" fill="#334155">表示も保存も server.js 経由。index.html は画面、server.js は受付、votes.db は保存先。</text>
+  </g>
+</svg>
