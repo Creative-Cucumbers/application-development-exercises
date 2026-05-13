@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub と Render によるデプロイ構成</title>
+  <desc id="desc">ローカルのコードを GitHub に push し、Render が GitHub からコードを取得して Web サービスとして起動し、利用者が Render の URL にアクセスする構成図。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#2563eb"/></marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="145%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#334155" flood-opacity="0.14"/></filter>
+  </defs>
+  <rect width="1280" height="640" fill="#f8fafc"/>
+  <text x="640" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="35" font-weight="700" fill="#111827">ローカルから公開 URL までのコンポーネント</text>
+  <text x="640" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">自分のPCで作ったコードを GitHub に置き、Render がそのコードを起動する</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g filter="url(#shadow)">
+      <rect x="70" y="170" width="250" height="210" rx="20" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="385" y="170" width="250" height="210" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+      <rect x="700" y="150" width="250" height="250" rx="20" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+      <rect x="1015" y="170" width="195" height="210" rx="20" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    </g>
+    <text x="195" y="226" text-anchor="middle" font-size="27" font-weight="700" fill="#1e3a8a">自分のPC</text>
+    <text x="195" y="268" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">ローカルリポジトリ</text>
+    <text x="195" y="304" text-anchor="middle" font-size="17" fill="#475569">index.html</text>
+    <text x="195" y="330" text-anchor="middle" font-size="17" fill="#475569">server.js</text>
+    <text x="195" y="356" text-anchor="middle" font-size="17" fill="#475569">package.json</text>
+    <text x="510" y="226" text-anchor="middle" font-size="27" font-weight="700" fill="#334155">GitHub</text>
+    <text x="510" y="268" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">コードを保管</text>
+    <text x="510" y="304" text-anchor="middle" font-size="17" fill="#475569">コミット履歴</text>
+    <text x="510" y="330" text-anchor="middle" font-size="17" fill="#475569">Publicなら誰でも読める</text>
+    <text x="510" y="356" text-anchor="middle" font-size="17" fill="#dc2626">.env は入れない</text>
+    <text x="825" y="206" text-anchor="middle" font-size="27" font-weight="700" fill="#166534">Render</text>
+    <text x="825" y="248" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Web Service</text>
+    <text x="825" y="284" text-anchor="middle" font-size="17" fill="#475569">Build: npm install</text>
+    <text x="825" y="310" text-anchor="middle" font-size="17" fill="#475569">Start: node server.js</text>
+    <text x="825" y="336" text-anchor="middle" font-size="17" fill="#475569">環境変数を設定</text>
+    <text x="825" y="362" text-anchor="middle" font-size="17" fill="#ea580c">votes.db は再起動で消える</text>
+    <text x="1112.5" y="226" text-anchor="middle" font-size="27" font-weight="700" fill="#9a3412">利用者</text>
+    <text x="1112.5" y="268" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">ブラウザ</text>
+    <text x="1112.5" y="304" text-anchor="middle" font-size="17" fill="#475569">https://...</text>
+    <text x="1112.5" y="330" text-anchor="middle" font-size="17" fill="#475569">onrender.com</text>
+    <path d="M 320 275 L 375 275" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <rect x="318" y="230" width="72" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="354" y="252" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">push</text>
+    <path d="M 635 275 L 690 275" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <rect x="641" y="230" width="78" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="680" y="252" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">連携</text>
+    <path d="M 1015 275 L 960 275" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <rect x="954" y="230" width="112" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="1010" y="252" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">HTTPアクセス</text>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <rect x="180" y="470" width="920" height="74" rx="22" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+    <text x="640" y="502" font-size="19" font-weight="700" fill="#334155">GitHub は「コード置き場」、Render は「コードを実行して公開する場所」</text>
+    <text x="640" y="532" font-size="17" fill="#64748b">.env や本番の秘密情報は GitHub ではなく Render の Environment Variables に置く</text>
+  </g>
+</svg>

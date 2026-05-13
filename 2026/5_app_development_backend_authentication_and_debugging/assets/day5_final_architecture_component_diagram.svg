@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Day5 完成時の全体構成図</title>
+  <desc id="desc">Render 上で動く server.js が index.html、SQLite の votes.db、.env の認証情報、ログインセッションを扱い、ブラウザが fetch と Cookie で通信する全体構成図。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M0 0 L12 6 L0 12 z" fill="#2563eb"/></marker>
+    <marker id="sql" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M0 0 L12 6 L0 12 z" fill="#ea580c"/></marker>
+  </defs>
+  <rect width="1280" height="640" fill="#f8fafc"/>
+  <text x="640" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="35" font-weight="700" fill="#111827">Day5 完成時の全体構成</text>
+  <text x="640" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">デプロイ済みの server.js が、画面・データ・認証をまとめて扱う</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="70" y="200" width="250" height="210" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <rect x="500" y="150" width="280" height="310" rx="22" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+    <rect x="930" y="130" width="250" height="110" rx="18" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <rect x="930" y="275" width="250" height="110" rx="18" fill="#fefce8" stroke="#fde68a" stroke-width="3"/>
+    <rect x="930" y="420" width="250" height="110" rx="18" fill="#faf5ff" stroke="#c4b5fd" stroke-width="3"/>
+    <text x="195" y="258" text-anchor="middle" font-size="28" font-weight="700" fill="#1e3a8a">ブラウザ</text>
+    <text x="195" y="297" text-anchor="middle" font-size="18" fill="#475569">index.html を表示</text>
+    <text x="195" y="327" text-anchor="middle" font-size="18" fill="#475569">fetch で通信</text>
+    <text x="195" y="357" text-anchor="middle" font-size="18" fill="#475569">Cookie を自動送信</text>
+    <text x="640" y="208" text-anchor="middle" font-size="28" font-weight="700" fill="#166534">server.js</text>
+    <text x="640" y="244" text-anchor="middle" font-size="19" font-weight="700" fill="#111827">Node.js + Express</text>
+    <text x="640" y="286" text-anchor="middle" font-size="17" fill="#475569">POST /vote・GET /votes</text>
+    <text x="640" y="316" text-anchor="middle" font-size="17" fill="#475569">GET /login・POST /login</text>
+    <text x="640" y="346" text-anchor="middle" font-size="17" fill="#475569">セッション管理</text>
+    <text x="640" y="376" text-anchor="middle" font-size="17" fill="#475569">Render で起動</text>
+    <text x="1055" y="174" text-anchor="middle" font-size="24" font-weight="700" fill="#9a3412">votes.db</text>
+    <text x="1055" y="207" text-anchor="middle" font-size="17" fill="#475569">SQLite / 投票データ</text>
+    <text x="1055" y="319" text-anchor="middle" font-size="24" font-weight="700" fill="#854d0e">.env / 環境変数</text>
+    <text x="1055" y="352" text-anchor="middle" font-size="17" fill="#475569">ログイン情報・秘密</text>
+    <text x="1055" y="464" text-anchor="middle" font-size="24" font-weight="700" fill="#5b21b6">セッション</text>
+    <text x="1055" y="497" text-anchor="middle" font-size="17" fill="#475569">ログイン中の状態</text>
+    <path d="M320 305 L490 305" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <rect x="360" y="258" width="94" height="32" rx="16" fill="#fff" stroke="#bfdbfe"/>
+    <text x="407" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">fetch</text>
+    <path d="M500 355 L330 355" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <rect x="360" y="370" width="110" height="32" rx="16" fill="#fff" stroke="#bfdbfe"/>
+    <text x="415" y="392" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">HTML / JSON</text>
+    <path d="M780 205 L920 185" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#sql)"/>
+    <text x="850" y="174" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">SQL</text>
+    <path d="M780 318 L920 330" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <text x="850" y="302" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">読み込み</text>
+    <path d="M780 405 L920 475" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <text x="850" y="455" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">作成・確認</text>
+  </g>
+</svg>

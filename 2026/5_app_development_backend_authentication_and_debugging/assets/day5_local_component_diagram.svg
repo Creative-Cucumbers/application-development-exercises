@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="680" viewBox="0 0 1280 680" role="img" aria-labelledby="title desc">
+  <title id="title">Day5 ローカル開発のコンポーネント図</title>
+  <desc id="desc">ブラウザ、index.html、server.js、votes.db の関係。file URL ではブラウザが index.html を直接開き、http localhost では server.js が index.html を配信し、投票データを SQLite に保存する。</desc>
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#2563eb"/></marker>
+    <marker id="green-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#16a34a"/></marker>
+    <marker id="orange-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#ea580c"/></marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="145%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#334155" flood-opacity="0.14"/></filter>
+  </defs>
+  <rect width="1280" height="680" fill="#f8fafc"/>
+  <text x="640" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="35" font-weight="700" fill="#111827">Day5 で扱うローカル構成</text>
+  <text x="640" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">file:// で直接開く構成から、http://localhost:3000 で server.js を通す構成へ移る</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="70" y="142" width="1140" height="190" rx="22" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+    <text x="110" y="185" font-size="24" font-weight="700" fill="#991b1b">A. フロントエンドだけ</text>
+    <text x="110" y="218" font-size="17" fill="#475569">index.html をダブルクリックして開く。データはブラウザのメモリにしかない。</text>
+    <g filter="url(#shadow)">
+      <rect x="120" y="250" width="230" height="58" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="565" y="250" width="230" height="58" rx="14" fill="#fef2f2" stroke="#fca5a5" stroke-width="3"/>
+      <rect x="930" y="250" width="190" height="58" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="8 7"/>
+    </g>
+    <text x="235" y="286" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">ブラウザ</text>
+    <text x="680" y="286" text-anchor="middle" font-size="20" font-weight="700" fill="#991b1b">index.html</text>
+    <text x="1025" y="286" text-anchor="middle" font-size="18" font-weight="700" fill="#64748b">DBなし</text>
+    <path d="M 350 279 L 555 279" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <rect x="400" y="225" width="112" height="34" rx="17" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="456" y="248" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">file://</text>
+    <text x="238" y="323" text-anchor="middle" font-size="15" fill="#475569">リロードで変数は初期化</text>
+    <rect x="70" y="372" width="1140" height="230" rx="22" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+    <text x="110" y="415" font-size="24" font-weight="700" fill="#166534">B. バックエンドを含む構成</text>
+    <text x="110" y="448" font-size="17" fill="#475569">node server.js を起動し、ブラウザは HTTP で server.js に依頼する。</text>
+    <g filter="url(#shadow)">
+      <rect x="110" y="492" width="210" height="72" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="405" y="492" width="210" height="72" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+      <rect x="700" y="492" width="210" height="72" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+      <rect x="995" y="492" width="150" height="72" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
+    <text x="215" y="520" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">ブラウザ</text>
+    <text x="215" y="548" text-anchor="middle" font-size="16" fill="#475569">http://localhost:3000</text>
+    <text x="510" y="520" text-anchor="middle" font-size="20" font-weight="700" fill="#166534">server.js</text>
+    <text x="510" y="548" text-anchor="middle" font-size="16" fill="#475569">Node.js + Express</text>
+    <text x="805" y="520" text-anchor="middle" font-size="20" font-weight="700" fill="#9a3412">votes.db</text>
+    <text x="805" y="548" text-anchor="middle" font-size="16" fill="#475569">SQLite</text>
+    <text x="1070" y="520" text-anchor="middle" font-size="18" font-weight="700" fill="#334155">index.html</text>
+    <text x="1070" y="548" text-anchor="middle" font-size="15" fill="#64748b">静的配信</text>
+    <path d="M 320 528 L 395 528" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+    <rect x="325" y="482" width="72" height="30" rx="15" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="361" y="503" text-anchor="middle" font-size="14" font-weight="700" fill="#16a34a">fetch</text>
+    <path d="M 615 528 L 690 528" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+    <rect x="627" y="482" width="54" height="30" rx="15" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="654" y="503" text-anchor="middle" font-size="14" font-weight="700" fill="#ea580c">SQL</text>
+    <path d="M 1000 492 C 900 430 650 430 545 488" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="8 8"/>
+    <text x="799" y="459" text-anchor="middle" font-size="15" fill="#64748b">server.js が index.html を返す</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">パスワード認証とセッションのコンポーネント図</title>
+  <desc id="desc">ブラウザがログイン情報を server.js に送り、server.js が .env の管理者情報を確認してセッションを作成し、セッションIDをCookieでブラウザに返す。以後のアクセスではCookieを使ってログイン状態を確認する。</desc>
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#2563eb"/></marker>
+    <marker id="green-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#16a34a"/></marker>
+    <marker id="orange-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#ea580c"/></marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="145%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#334155" flood-opacity="0.14"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <text x="640" y="58" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="35" font-weight="700" fill="#111827">ログイン後は Cookie とセッションで「ログイン中」を確認する</text>
+  <text x="640" y="96" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="19" fill="#475569">パスワードそのものを毎回送るのではなく、サーバーが発行したセッションIDを使う</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g filter="url(#shadow)">
+      <rect x="70" y="170" width="300" height="360" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="490" y="150" width="300" height="400" rx="22" fill="#f0fdf4" stroke="#86efac" stroke-width="3"/>
+      <rect x="910" y="170" width="300" height="360" rx="22" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    </g>
+    <text x="220" y="225" text-anchor="middle" font-size="29" font-weight="700" fill="#1e3a8a">ブラウザ</text>
+    <rect x="115" y="266" width="210" height="82" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="220" y="300" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">ログインフォーム</text>
+    <text x="220" y="328" text-anchor="middle" font-size="16" fill="#475569">user / password</text>
+    <rect x="115" y="405" width="210" height="82" rx="14" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="220" y="439" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Cookie</text>
+    <text x="220" y="467" text-anchor="middle" font-size="16" fill="#475569">セッションIDを保持</text>
+    <text x="640" y="205" text-anchor="middle" font-size="29" font-weight="700" fill="#166534">server.js</text>
+    <text x="640" y="240" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Express + express-session</text>
+    <rect x="530" y="286" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="325" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">POST /login</text>
+    <rect x="530" y="386" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="425" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">セッションを作成</text>
+    <rect x="530" y="486" width="220" height="62" rx="14" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="640" y="525" text-anchor="middle" font-size="19" font-weight="700" fill="#166534">Cookie を確認</text>
+    <text x="1060" y="225" text-anchor="middle" font-size="29" font-weight="700" fill="#9a3412">サーバー側の秘密</text>
+    <rect x="955" y="270" width="210" height="82" rx="14" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+    <text x="1060" y="304" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">.env</text>
+    <text x="1060" y="332" text-anchor="middle" font-size="16" fill="#475569">ADMIN_USER / PASS</text>
+    <rect x="955" y="405" width="210" height="82" rx="14" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+    <text x="1060" y="439" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">セッション情報</text>
+    <text x="1060" y="467" text-anchor="middle" font-size="16" fill="#475569">ログイン中を保持</text>
+    <path d="M 370 317 L 520 317" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" marker-end="url(#blue-arrow)"/>
+    <rect x="390" y="268" width="130" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe"/>
+    <text x="455" y="290" text-anchor="middle" font-size="15" font-weight="700" fill="#1d4ed8">1. POST /login</text>
+    <path d="M 790 317 L 945 317" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+    <rect x="819" y="268" width="118" height="32" rx="16" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="878" y="290" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">2. 照合</text>
+    <path d="M 945 446 L 790 446" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round" marker-end="url(#orange-arrow)"/>
+    <rect x="803" y="460" width="150" height="32" rx="16" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="878" y="482" text-anchor="middle" font-size="15" font-weight="700" fill="#ea580c">3. セッション作成</text>
+    <path d="M 520 446 L 370 446" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+    <rect x="384" y="460" width="144" height="32" rx="16" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="456" y="482" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">4. Cookieを返す</text>
+    <path d="M 370 517 L 520 517" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round" marker-end="url(#green-arrow)"/>
+    <rect x="388" y="531" width="140" height="32" rx="16" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="458" y="553" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">5. 以後は自動送信</text>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" text-anchor="middle">
+    <rect x="155" y="610" width="970" height="58" rx="20" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+    <text x="640" y="646" font-size="20" font-weight="700" fill="#334155">フロントエンドに秘密情報を置かない。認証情報とセッションは server.js 側で扱う。</text>
+  </g>
+</svg>
