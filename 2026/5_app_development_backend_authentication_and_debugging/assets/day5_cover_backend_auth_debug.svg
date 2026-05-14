@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Day5 backend deployment authentication debugging cover</title>
+  <desc id="desc">A dark editorial cover illustration for Day5 app development, showing a browser, backend server, database, deployment cloud, authentication lock, and debugging console in a flat geometric style.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#18343a"/>
+      <stop offset="1" stop-color="#2b2117"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e5e7eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 L 0 0 0 46" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1260" cy="170" r="230" fill="#14b8a6" opacity="0.12"/>
+  <circle cx="280" cy="760" r="280" fill="#f59e0b" opacity="0.10"/>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <text x="96" y="120" font-size="34" font-weight="700" fill="#5eead4" letter-spacing="2">APPLICATION DEVELOPMENT</text>
+    <text x="96" y="192" font-size="82" font-weight="800" fill="#f8fafc">Day5</text>
+    <text x="300" y="192" font-size="54" font-weight="800" fill="#f8fafc">Backend / Deploy / Auth / Debug</text>
+    <text x="100" y="250" font-size="30" font-weight="700" fill="#fcd34d">localhost から公開 URL へ。動くアプリを守りながら直す。</text>
+  </g>
+
+  <g filter="url(#shadow)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="110" y="330" width="330" height="230" rx="20" fill="url(#panel)"/>
+    <rect x="110" y="330" width="330" height="46" rx="20" fill="#0f766e"/>
+    <circle cx="140" cy="353" r="8" fill="#fca5a5"/>
+    <circle cx="166" cy="353" r="8" fill="#fde68a"/>
+    <circle cx="192" cy="353" r="8" fill="#86efac"/>
+    <text x="140" y="420" font-size="23" font-weight="800" fill="#111827">Browser</text>
+    <rect x="140" y="450" width="260" height="24" rx="12" fill="#d1fae5"/>
+    <rect x="140" y="490" width="190" height="18" rx="9" fill="#cbd5e1"/>
+    <rect x="140" y="522" width="230" height="18" rx="9" fill="#cbd5e1"/>
+    <text x="140" y="595" font-size="20" font-weight="700" fill="#0f766e">index.html</text>
+
+    <rect x="635" y="330" width="330" height="230" rx="20" fill="#102a2e" stroke="#5eead4" stroke-width="3"/>
+    <text x="675" y="392" font-size="30" font-weight="800" fill="#ccfbf1">server.js</text>
+    <text x="675" y="436" font-size="20" fill="#a7f3d0">Express API</text>
+    <text x="675" y="474" font-size="20" fill="#a7f3d0">Session / Cookie</text>
+    <text x="675" y="512" font-size="20" fill="#a7f3d0">Error logs</text>
+    <rect x="675" y="535" width="210" height="8" rx="4" fill="#14b8a6"/>
+
+    <rect x="1160" y="330" width="300" height="230" rx="20" fill="#2b2117" stroke="#f59e0b" stroke-width="3"/>
+    <ellipse cx="1310" cy="385" rx="90" ry="30" fill="#fed7aa"/>
+    <rect x="1220" y="385" width="180" height="110" fill="#f59e0b"/>
+    <ellipse cx="1310" cy="495" rx="90" ry="30" fill="#d97706"/>
+    <path d="M1220 428 C1265 455 1355 455 1400 428" fill="none" stroke="#fed7aa" stroke-width="6"/>
+    <text x="1230" y="545" font-size="24" font-weight="800" fill="#fffbeb">votes.db</text>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 450 435 L 625 435" stroke="#5eead4" stroke-width="8"/>
+    <path d="M 595 405 L 625 435 L 595 465" stroke="#5eead4" stroke-width="8"/>
+    <path d="M 975 435 L 1148 435" stroke="#f59e0b" stroke-width="8"/>
+    <path d="M 1118 405 L 1148 435 L 1118 465" stroke="#f59e0b" stroke-width="8"/>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800">
+    <rect x="495" y="382" width="92" height="42" rx="21" fill="#0f766e"/>
+    <text x="541" y="410" text-anchor="middle" font-size="18" fill="#f0fdfa">fetch</text>
+    <rect x="1012" y="382" width="82" height="42" rx="21" fill="#92400e"/>
+    <text x="1053" y="410" text-anchor="middle" font-size="18" fill="#fffbeb">SQL</text>
+  </g>
+
+  <g filter="url(#shadow)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="260" y="655" width="250" height="96" rx="20" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+    <text x="300" y="697" font-size="24" font-weight="800" fill="#e0f2fe">GitHub</text>
+    <text x="300" y="728" font-size="18" fill="#bae6fd">push / history</text>
+
+    <rect x="575" y="635" width="260" height="136" rx="20" fill="#172554" stroke="#60a5fa" stroke-width="3"/>
+    <path d="M 643 704 C 665 660 730 660 752 704 C 786 706 798 749 760 758 L 642 758 C 605 750 611 708 643 704 Z" fill="#93c5fd"/>
+    <text x="645" y="735" font-size="22" font-weight="800" fill="#172554">Render</text>
+
+    <rect x="900" y="655" width="200" height="96" rx="20" fill="#1f2937" stroke="#fcd34d" stroke-width="3"/>
+    <rect x="960" y="693" width="80" height="42" rx="8" fill="none" stroke="#fcd34d" stroke-width="5"/>
+    <path d="M 975 693 L 975 670 C 975 645 1025 645 1025 670 L 1025 693" fill="none" stroke="#fcd34d" stroke-width="5"/>
+    <text x="930" y="618" font-size="22" font-weight="800" fill="#fef3c7">Auth</text>
+
+    <rect x="1165" y="655" width="230" height="96" rx="20" fill="#1f2937" stroke="#fb7185" stroke-width="3"/>
+    <text x="1200" y="700" font-size="26" font-weight="800" fill="#ffe4e6">Debug</text>
+    <text x="1200" y="730" font-size="18" fill="#fecdd3">Console / Network</text>
+  </g>
+
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 12">
+    <path d="M 510 705 L 575 705"/>
+    <path d="M 835 705 L 900 705"/>
+    <path d="M 1100 705 L 1165 705"/>
+  </g>
+</svg>

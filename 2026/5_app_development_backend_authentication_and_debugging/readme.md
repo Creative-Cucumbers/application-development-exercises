@@ -1,5 +1,7 @@
 # Day5 アプリ開発発展②：Day4 の定着・デプロイ・認証とデバッグ
 
+![Day5 表紙：Backend / Deploy / Auth / Debug](./assets/day5_cover_backend_auth_debug.svg)
+
 [TOC]
 
 ## この日の位置づけ
