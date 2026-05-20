@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Day6 と Day7 の全体像</title>
+  <desc id="desc">Day6 は設計、実装、デプロイまで進め、Day7 はレビュー、改善、発表につなげる流れを示す図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .day6-panel { fill: #e7f3ff; stroke: #5d9fd8; stroke-width: 2; }
+      .day7-panel { fill: #eaf7ef; stroke: #61a574; stroke-width: 2; }
+      .day6-pill { fill: #ffffff; stroke: #5d9fd8; stroke-width: 2; }
+      .day7-pill { fill: #ffffff; stroke: #61a574; stroke-width: 2; }
+      .arrow { stroke: #536273; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .label { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 30px; font-weight: 700; fill: #1f2937; }
+      .text { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 24px; font-weight: 500; fill: #243244; }
+      .small { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 19px; font-weight: 500; fill: #415064; }
+      .goal { fill: #fff7df; stroke: #d9aa35; stroke-width: 2; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#536273"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text class="label" x="72" y="70">2日間のゴール：動くものを作り、仕組みを説明できる状態にする</text>
+
+  <rect class="day6-panel" x="70" y="118" width="500" height="355" rx="18"/>
+  <text class="label" x="105" y="170">Day6</text>
+  <text class="text" x="105" y="215">UI 実装とデプロイ</text>
+  <rect class="day6-pill" x="105" y="252" width="395" height="54" rx="14"/>
+  <text class="small" x="132" y="286">1. テーマと最小機能を決める</text>
+  <rect class="day6-pill" x="105" y="322" width="395" height="54" rx="14"/>
+  <text class="small" x="132" y="356">2. 画面と処理の流れを書く</text>
+  <rect class="day6-pill" x="105" y="392" width="395" height="54" rx="14"/>
+  <text class="small" x="132" y="426">3. 実装して URL で見られる状態にする</text>
+
+  <rect class="day7-panel" x="630" y="118" width="500" height="355" rx="18"/>
+  <text class="label" x="665" y="170">Day7</text>
+  <text class="text" x="665" y="215">改善と全員発表</text>
+  <rect class="day7-pill" x="665" y="252" width="395" height="54" rx="14"/>
+  <text class="small" x="692" y="286">1. 成果物を見せ合って改善点を出す</text>
+  <rect class="day7-pill" x="665" y="322" width="395" height="54" rx="14"/>
+  <text class="small" x="692" y="356">2. 仕組みを確認しながら作り込む</text>
+  <rect class="day7-pill" x="665" y="392" width="395" height="54" rx="14"/>
+  <text class="small" x="692" y="426">3. デモと仕組みを発表する</text>
+
+  <path class="arrow" d="M570 295 C595 295, 605 295, 630 295"/>
+  <rect class="goal" x="255" y="512" width="690" height="64" rx="18"/>
+  <text class="text" x="300" y="553">完成度よりも「自分で理解して説明できること」を重視する</text>
+</svg>

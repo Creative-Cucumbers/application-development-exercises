@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">制作中の進め方</title>
+  <desc id="desc">仕様を書く、AIに依頼する、動かす、修正する、コミットするという制作サイクルを示す図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .node { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2.2; }
+      .accent1 { fill: #eaf2ff; stroke: #4f8fd1; stroke-width: 2.2; }
+      .accent2 { fill: #eef8f0; stroke: #5aa46d; stroke-width: 2.2; }
+      .accent3 { fill: #fff6df; stroke: #d49b2e; stroke-width: 2.2; }
+      .accent4 { fill: #f7f0ff; stroke: #9367c7; stroke-width: 2.2; }
+      .accent5 { fill: #ffeef0; stroke: #c76570; stroke-width: 2.2; }
+      .title { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 32px; font-weight: 700; fill: #1f2937; }
+      .label { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 24px; font-weight: 700; fill: #243244; }
+      .text { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 19px; font-weight: 500; fill: #405064; }
+      .arrow { stroke: #536273; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#536273"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text class="title" x="72" y="72">制作中は小さく作って、動いたところで区切る</text>
+
+  <rect class="accent1" x="105" y="175" width="210" height="120" rx="18"/>
+  <text class="label" x="151" y="225">仕様を書く</text>
+  <text class="text" x="137" y="260">何を入力し、何を出すか</text>
+
+  <rect class="accent2" x="385" y="175" width="210" height="120" rx="18"/>
+  <text class="label" x="438" y="225">AIに依頼</text>
+  <text class="text" x="415" y="260">仕様を渡して実装する</text>
+
+  <rect class="accent3" x="665" y="175" width="210" height="120" rx="18"/>
+  <text class="label" x="724" y="225">動かす</text>
+  <text class="text" x="693" y="260">ブラウザで確認する</text>
+
+  <rect class="accent4" x="385" y="390" width="210" height="120" rx="18"/>
+  <text class="label" x="450" y="440">修正</text>
+  <text class="text" x="414" y="475">エラーや違和感を直す</text>
+
+  <rect class="accent5" x="665" y="390" width="210" height="120" rx="18"/>
+  <text class="label" x="721" y="440">コミット</text>
+  <text class="text" x="706" y="475">動く状態を残す</text>
+
+  <rect class="node" x="945" y="278" width="160" height="130" rx="18"/>
+  <text class="label" x="982" y="330">デプロイ</text>
+  <text class="text" x="980" y="365">URLで共有</text>
+
+  <path class="arrow" d="M315 235 L385 235"/>
+  <path class="arrow" d="M595 235 L665 235"/>
+  <path class="arrow" d="M770 295 C770 335, 715 370, 595 430"/>
+  <path class="arrow" d="M490 390 C490 330, 610 305, 665 265"/>
+  <path class="arrow" d="M595 450 L665 450"/>
+  <path class="arrow" d="M875 450 C930 430, 955 400, 975 372"/>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">発表とレポートで説明すること</title>
+  <desc id="desc">作品、デモ、仕組み、工夫、改善点を発表とレポートで説明することを示す図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .center { fill: #1f2937; }
+      .a { fill: #eaf2ff; stroke: #4f8fd1; stroke-width: 2.2; }
+      .b { fill: #eef8f0; stroke: #5aa46d; stroke-width: 2.2; }
+      .c { fill: #fff6df; stroke: #d49b2e; stroke-width: 2.2; }
+      .d { fill: #f7f0ff; stroke: #9367c7; stroke-width: 2.2; }
+      .e { fill: #ffeef0; stroke: #c76570; stroke-width: 2.2; }
+      .title { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 32px; font-weight: 700; fill: #1f2937; }
+      .label { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 24px; font-weight: 700; fill: #243244; }
+      .text { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 19px; font-weight: 500; fill: #405064; }
+      .white { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 24px; font-weight: 700; fill: #ffffff; }
+      .line { stroke: #94a3b8; stroke-width: 3; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text class="title" x="72" y="72">発表とレポートは「作品」と「仕組み」をセットで説明する</text>
+
+  <circle class="center" cx="600" cy="330" r="102"/>
+  <text class="white" x="540" y="320">最終成果物</text>
+  <text class="white" x="520" y="358">発表・レポート</text>
+
+  <line class="line" x1="530" y1="270" x2="332" y2="178"/>
+  <line class="line" x1="670" y1="270" x2="868" y2="178"/>
+  <line class="line" x1="508" y1="360" x2="315" y2="430"/>
+  <line class="line" x1="692" y1="360" x2="885" y2="430"/>
+  <line class="line" x1="600" y1="422" x2="600" y2="515"/>
+
+  <rect class="a" x="120" y="120" width="300" height="118" rx="18"/>
+  <text class="label" x="205" y="168">何を作ったか</text>
+  <text class="text" x="165" y="204">作品名、使う人、目的</text>
+
+  <rect class="b" x="780" y="120" width="300" height="118" rx="18"/>
+  <text class="label" x="880" y="168">デモ</text>
+  <text class="text" x="825" y="204">操作手順と見せたい場面</text>
+
+  <rect class="c" x="105" y="390" width="330" height="118" rx="18"/>
+  <text class="label" x="207" y="438">仕組み</text>
+  <text class="text" x="150" y="474">UI、API、DB、認証など</text>
+
+  <rect class="d" x="765" y="390" width="330" height="118" rx="18"/>
+  <text class="label" x="855" y="438">頑張った点</text>
+  <text class="text" x="810" y="474">工夫したところ、苦労したところ</text>
+
+  <rect class="e" x="450" y="500" width="300" height="86" rx="18"/>
+  <text class="label" x="527" y="538">改善したい点</text>
+  <text class="text" x="502" y="570">次に直す・足すところ</text>
+</svg>

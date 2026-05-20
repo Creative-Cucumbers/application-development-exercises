@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">アプリの仕組みの例</title>
+  <desc id="desc">ユーザー、画面、API、データベース、外部API、micro:bit、認証の関係を示す図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2.2; }
+      .main { fill: #eaf2ff; stroke: #4f8fd1; stroke-width: 2.2; }
+      .api { fill: #eef8f0; stroke: #5aa46d; stroke-width: 2.2; }
+      .data { fill: #fff6df; stroke: #d49b2e; stroke-width: 2.2; }
+      .option { fill: #f7f0ff; stroke: #9367c7; stroke-width: 2.2; }
+      .title { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 32px; font-weight: 700; fill: #1f2937; }
+      .label { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 25px; font-weight: 700; fill: #243244; }
+      .text { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 20px; font-weight: 500; fill: #405064; }
+      .arrow { stroke: #536273; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 9 8; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#536273"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="700"/>
+  <text class="title" x="72" y="72">アプリは「入力 → 処理 → 保存・取得 → 表示」の流れで考える</text>
+
+  <rect class="box" x="70" y="155" width="185" height="120" rx="18"/>
+  <text class="label" x="112" y="205">ユーザー</text>
+  <text class="text" x="102" y="242">操作・入力</text>
+
+  <rect class="main" x="340" y="125" width="250" height="180" rx="20"/>
+  <text class="label" x="420" y="180">画面 UI</text>
+  <text class="text" x="382" y="218">ボタン、入力欄</text>
+  <text class="text" x="382" y="248">一覧、表示エリア</text>
+
+  <rect class="api" x="710" y="125" width="250" height="180" rx="20"/>
+  <text class="label" x="805" y="180">API</text>
+  <text class="text" x="758" y="218">入力を受け取り</text>
+  <text class="text" x="758" y="248">処理して返す</text>
+
+  <rect class="data" x="715" y="405" width="240" height="120" rx="18"/>
+  <text class="label" x="776" y="455">データベース</text>
+  <text class="text" x="760" y="492">保存・取得する</text>
+
+  <rect class="option" x="330" y="405" width="265" height="120" rx="18"/>
+  <text class="label" x="388" y="455">外部 API</text>
+  <text class="text" x="370" y="492">天気、地図、生成AIなど</text>
+
+  <rect class="option" x="70" y="405" width="185" height="120" rx="18"/>
+  <text class="label" x="108" y="455">micro:bit</text>
+  <text class="text" x="98" y="492">入力・出力に使う</text>
+
+  <rect class="option" x="985" y="125" width="145" height="180" rx="18"/>
+  <text class="label" x="1010" y="185">認証</text>
+  <text class="text" x="1012" y="225">ログイン</text>
+  <text class="text" x="1012" y="255">権限確認</text>
+
+  <path class="arrow" d="M255 215 L340 215"/>
+  <path class="arrow" d="M590 215 L710 215"/>
+  <path class="arrow" d="M710 250 C650 330, 650 392, 715 450"/>
+  <path class="arrow" d="M835 405 L835 305"/>
+  <path class="arrow dash" d="M595 465 L715 465"/>
+  <path class="arrow dash" d="M255 465 L330 465"/>
+  <path class="arrow dash" d="M960 215 L985 215"/>
+
+  <text class="text" x="352" y="342">まずは UI と仮データだけでもよい</text>
+  <text class="text" x="352" y="372">余裕があれば API、DB、認証、micro:bit を足す</text>
+</svg>

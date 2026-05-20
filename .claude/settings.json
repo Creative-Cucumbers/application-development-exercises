@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash /Users/ito/Private/application-development-exercises/2026/6_comprehensive_exercise_theme_design_and_implementation/slides/build_slides.sh)",
+      "Bash(playwright-cli attach *)",
+      "Bash(playwright-cli -s=chrome attach --cdp=chrome)",
+      "Bash(playwright-cli -s=chrome goto \"file:///Users/ito/Private/application-development-exercises/2026/6_comprehensive_exercise_theme_design_and_implementation/slides/day6.html\")",
+      "Bash(playwright-cli -s=chrome eval \"location.href\")",
+      "Bash(playwright-cli -s=chrome eval \"Reveal && Reveal.getTotalSlides ? Reveal.getTotalSlides\\(\\) : document.querySelectorAll\\('section'\\).length\")",
+      "Bash(playwright-cli -s=chrome eval ' *)",
+      "Bash(playwright-cli -s=chrome eval \"document.querySelectorAll\\('section'\\).length\")",
+      "Bash(playwright-cli -s=chrome eval \"location.hash = '#4'\")",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/day6_flow_slide.png)",
+      "Bash(playwright-cli -s=chrome eval \"location.hash = '#5'\")",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/day6_flow_slide2.png)",
+      "Bash(playwright-cli -s=chrome eval \"location.reload\\(\\)\")",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p5.png)",
+      "Bash(playwright-cli -s=chrome eval \"location.hash = '#6'\")",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p6.png)",
+      "Bash(playwright-cli -s=chrome eval \"location.hash = '#7'\")",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p7.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p6_v2.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p5_v2.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p6_v3.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p7_v2.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p6_v4.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p7_v3.png)",
+      "Bash(playwright-cli -s=chrome screenshot --filename=/tmp/slide_p6_v5.png)"
+    ]
+  }
+}
